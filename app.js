@@ -16,6 +16,15 @@ const serviceAccount = {
   // Substitua com os dados do seu arquivo de credenciais baixado
   "type": "service_account",
   "project_id": "barbearia-app-alexandre",
+  "private_key_id": "f64013ba306aaa08d7fdfe4ca159b00b00d580ad",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3WcE8dioZOghS\n+ToEd2pjyLEERAYK+pX8u2FjytRATFuMw72TbVmxKN+i+ASuPwIfyhKPb3zxoMtW\n81X7R2SywebhaviJUEQ4QN9p2zgCKoRmyyqLoEbwl7YV0S1ziCP7ViRI59vkoTvG\nSyz3YEsv2NHBUZ7ldGfISTBNMC3+gCjmbvqly7ZL2/R9JAIA+WKyziSl8EBsmxrS\n8LNNrkHM0FBV+dGOc2iL/Po5VJnwN6AvfJaI0FuftrJBr+lSRBAgpO3k6qSiu0KO\nAbL6++SFlGSRmV4ObkYJickJkUvi/7S9zBDKJNYGrhjX+XuQ3PHy3N2QI7oZuoLv\nKq/veTIpAgMBAAECggEAIbDd96i06qbFwc1nEkwJIiXOFT0UqS7LocGizy4Fm30M\nc4zCSJVW3l1m3rDZV1VfpAzDJVU0rcfApY0YNxCy2cAUl0ZLPhwgNQACrZZpL8i1\nRJg/jKGad3pBLLgftHOHPRdimnz0ZIoWDEVjEV/B4RxjyrSfUIV3zo9YT06znOiK\nnETpNCEGrlsryXTB0vtQ/malRk6YJf8MTzsJvJdBZgTj79Te7Vq7AT2qFzaa90D6\nBeuRTZiisGLFZe0u/zpLR33CMUOC1s7fF+8A1KpzPOutj0q0EAKiGzlkitcQ4BHN\nJFwQcry58mR9MzpSYxL6yz0b6GsBSBZPBULLqt86iwKBgQD1kZM0MC+PUnqtI3nC\nlAPJOyCIWVWV35wVeDL/HLfcsteRgdhO8G7gqHO+wXQtHUkOEjZTcxSMwnSp9SyO\nqz8oWCl56rt53c37Hhedy6oExhuqKd1IDJYVmICWwhNn4t8hT9Quj/CfrwnfU+AW\naEhjQuECjPSomntlNctfbRcaMwKBgQC/I5evsPJpKd9rwH/4XZOBN9Ogd4F0gsnD\nVOiwNpiVWfPFoGHdC1AFaFTbJpIzyqcznSkykxU+xt0KQBt3uYSiW+J8o7PDDhps\nL5Mp4vcwcjt2fz2SYivQ3lAbifEt1mIhlt1IiTH0e36bSavGjfEFpI9G5Xz8R5Hf\nEz6fAv8eMwKBgQDhFWvdvAT701fKdufV56GIwv9QusFtvCXur9veZc5JJkvcfS1t\nPYgDt6NPxzXbXCpoEV1mI+dEFcClP6p1opUjP5vUucjZLOruL2jqI5FVCti0oebH\ncXHnnX7PsFflMtfeSrNrclfVpbTg1JpjL3aaNOTVV6mxGNfdru8YKn+wbQKBgCtg\nj3cOyCS3nP2eJSyfR+9mVP+wv09KszFCHsCG01/plxn9iNgaTiG8CK3ndfyM/B8J\nhqT0njit9tHxtIoaLxCNm7u/hvc4RyTQMyypVoHHGtmMjNOgteLj4Pgu+O33HjQT\nQcrJX+3k7NmfAX3BDrbCHsXvJMs4DtG6U1bQ3kbjAoGBAOtEqJdhuq4l7krlgDt0\njdnGqwx4sJDVd9dZ/9kW50SuzczCdNj97tGour0X+RNxWFEbkzz43ec+GS2kcKjV\n1NWD/QMAoCdJQwjBswUCvIuajF/jqjo/4cOTDCMoXp4Iu/bvfGi8H8iWI6vMFmQC\nK3jditxuztV+xzvpDA34tITD\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@barbearia-app-alexandre.iam.gserviceaccount.com",
+  "client_id": "115307478075992205627",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40barbearia-app-alexandre.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
   // As outras informações virão do arquivo JSON baixado do Firebase
 };
 
