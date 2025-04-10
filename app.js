@@ -45,13 +45,18 @@ const sessions = {};
 // Função para obter horários do Firebase
 async function getHorariosDisponiveis() {
   try {
-    // Obter a data de hoje
-    const hoje = new Date();
-    const dia = String(hoje.getDate()).padStart(2, '0');
-    const mes = String(hoje.getMonth() + 1).padStart(2, '0');
-    const ano = hoje.getFullYear();
+    // Obter a data de hoje no fuso horário do Brasil (GMT-3)
+    const hojeUTC = new Date();
+    // Ajustar para o fuso horário do Brasil (UTC-3)
+    const hojeLocal = new Date(hojeUTC.getTime() - (3 * 60 * 60 * 1000));
     
-    console.log(`Buscando agendamentos para: ${dia}/${mes}/${ano}`);
+    const dia = String(hojeLocal.getDate()).padStart(2, '0');
+    const mes = String(hojeLocal.getMonth() + 1).padStart(2, '0');
+    const ano = hojeLocal.getFullYear();
+    
+    console.log(`Buscando agendamentos para: ${dia}/${mes}/${ano} (fuso horário do Brasil)`);
+    console.log(`Data/hora UTC: ${hojeUTC.toISOString()}`);
+    console.log(`Data/hora local (Brasil): ${hojeLocal.toISOString()}`);
     
     // Buscar todos os agendamentos existentes
     const snapshot = await db.collection("appointments").get();
@@ -65,18 +70,24 @@ async function getHorariosDisponiveis() {
       
       // Verificar se o appointment.date é um Timestamp do Firestore
       if (appointment.date && typeof appointment.date.toDate === 'function') {
-        const appointmentDate = appointment.date.toDate();
+        const appointmentDateUTC = appointment.date.toDate();
+        // Converter para fuso horário do Brasil
+        const appointmentDateLocal = new Date(appointmentDateUTC);
+        
+        console.log(`Agendamento encontrado - UTC: ${appointmentDateUTC.toISOString()}`);
+        console.log(`Data agendamento: ${appointmentDateUTC.getDate()}/${appointmentDateUTC.getMonth()+1}/${appointmentDateUTC.getFullYear()}`);
+        console.log(`Data hoje local: ${hojeLocal.getDate()}/${hojeLocal.getMonth()+1}/${hojeLocal.getFullYear()}`);
         
         // Verificar se é para hoje - comparando data, mês e ano
-        if (appointmentDate.getDate() === hoje.getDate() &&
-            appointmentDate.getMonth() === hoje.getMonth() &&
-            appointmentDate.getFullYear() === hoje.getFullYear()) {
+        if (appointmentDateUTC.getDate() === hojeLocal.getDate() &&
+            appointmentDateUTC.getMonth() === hojeLocal.getMonth() &&
+            appointmentDateUTC.getFullYear() === hojeLocal.getFullYear()) {
           
-          console.log(`Encontrado agendamento para hoje: barbeiro=${appointment.barber}, horário=${appointmentDate.getHours()}:${appointmentDate.getMinutes()}, serviço=${appointment.service}`);
+          console.log(`Encontrado agendamento para hoje: barbeiro=${appointment.barber}, horário=${appointmentDateUTC.getHours()}:${appointmentDateUTC.getMinutes()}, serviço=${appointment.service}`);
           
           // Formatar a hora do agendamento (HH:MM)
-          const hora = appointmentDate.getHours();
-          const minutos = appointmentDate.getMinutes();
+          const hora = appointmentDateUTC.getHours();
+          const minutos = appointmentDateUTC.getMinutes();
           const horaStr = `${hora}:${minutos === 0 ? '00' : minutos}`;
           
           // Adicionar ao objeto de horários ocupados
@@ -108,12 +119,14 @@ async function getHorariosDisponiveis() {
       
       // Verificar se o block.date é um Timestamp do Firestore
       if (block.date && typeof block.date.toDate === 'function') {
-        const blockDate = block.date.toDate();
+        const blockDateUTC = block.date.toDate();
+        // Converter para fuso horário do Brasil
+        const blockDateLocal = new Date(blockDateUTC);
         
         // Verificar se é para hoje
-        if (blockDate.getDate() === hoje.getDate() &&
-            blockDate.getMonth() === hoje.getMonth() &&
-            blockDate.getFullYear() === hoje.getFullYear()) {
+        if (blockDateUTC.getDate() === hojeLocal.getDate() &&
+            blockDateUTC.getMonth() === hojeLocal.getMonth() &&
+            blockDateUTC.getFullYear() === hojeLocal.getFullYear()) {
           
           console.log(`Encontrado bloqueio para hoje: ${block.startTime} - ${block.endTime}, barbeiro=${block.barber}`);
           
@@ -203,7 +216,7 @@ async function getHorariosDisponiveis() {
         });
         
         // Verificar se já passou da hora atual (não mostrar horários passados)
-        const agora = new Date();
+        const agora = hojeLocal; // Usar a data local ajustada para Brasil
         const horaAtual = agora.getHours();
         const minutoAtual = agora.getMinutes();
         const horarioJaPassou = (parseInt(hora) < horaAtual) || 
