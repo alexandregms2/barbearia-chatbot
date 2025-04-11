@@ -1,26 +1,20 @@
 {
   "name": "barbearia-chatbot",
   "version": "1.0.0",
-  "description": "Chatbot WhatsApp para Barbearia Alexandre via Twilio",
+  "description": "Chatbot WhatsApp para Barbearia",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js"
   },
-  "keywords": ["whatsapp", "chatbot", "twilio", "barbearia"],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "body-parser": "^2.2.0",
-    "express": "^5.1.0",
-    "firebase-admin": "^13.2.0",
-    "twilio": "^5.5.2"
+    "express": "^4.17.1",
+    "body-parser": "^1.19.0",
+    "twilio": "^3.76.0",
+    "firebase-admin": "^10.0.0",
+    "axios": "^0.26.0"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
-  },
-  "engines": {
-    "node": ">=14.0.0"
+    "nodemon": "^2.0.15"
   }
 }
