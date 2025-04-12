@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 
 // Configuração do Firebase
 // Para produção, você deve usar variáveis de ambiente para estas credenciais
-const serviceAccount = require('./barbearia-app-alexandre-firebase.json');
+const serviceAccount = require('./barbearia-app-alexandre-firebase-admin.json');
 
 // Inicializar Firebase
 admin.initializeApp({
