@@ -1,3 +1,4 @@
 # Conteúdo do .gitignore
 node_modules/
 .env
+barbearia-app-alexandre-firebase.json
