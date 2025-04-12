@@ -9,8 +9,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Configuração do Firebase
-// Para produção, você deve usar variáveis de ambiente para estas credenciais
-const serviceAccount = require('./barbearia-app-alexandre-firebase-admin.json');
+// PARA TESTE LOCAL USAR A LINHA ABAIXO
+// const serviceAccount = require('./barbearia-app-alexandre-firebase-admin.json');
+
+// Carregar variáveis de ambiente do arquivo .env em ambiente de desenvolvimento
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 // Inicializar Firebase
 admin.initializeApp({
