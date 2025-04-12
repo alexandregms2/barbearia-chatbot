@@ -13,7 +13,14 @@ const port = process.env.PORT || 3000;
 const serviceAccount = {
   // Substitua com os dados do seu arquivo de credenciais baixado
   "type": "service_account",
-  "project_id": "barbearia-app-alexandre",
+  "apiKey": "AIzaSyCy3jzA0D5py-ZFf4O6ZBhVoJe8GVV2cNU",
+  "authDomain": "barbearia-app-alexandre.firebaseapp.com",
+  "projectId": "barbearia-app-alexandre",
+  "storageBucket": "barbearia-app-alexandre.firebasestorage.app",
+  "messagingSenderId": "812007017611",
+  "appId": "1:812007017611:web:e537e0a2c70afda98c988e",
+  "measurementId": "G-GBN5DN49QW"
+  
   // Seus outros dados de credenciais aqui
 };
 
